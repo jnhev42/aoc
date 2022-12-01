@@ -1,8 +1,8 @@
 from pathlib import Path
-def curry(f, *args):
-    return lambda *more_args: f(*args, *more_args)
 
 input = Path('input.txt').read_text()
-elves = map(lambda elf: map(int, elf.split("\n")), input.split("\n\n")[:-1])
-cals = max(map(sum, elves))
-print(cals)
+elves = input.split("\n\n")[:-1]
+bags = map(lambda elf: map(int, elf.split("\n")), elves)
+tot_cals = sorted(map(sum, bags), reverse=True)
+print(tot_cals[0])
+print(sum(tot_cals[0:3]))
