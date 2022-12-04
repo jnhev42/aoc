@@ -9,6 +9,14 @@ const parsePair = line => line
 const pairContains = ([aLower, aUpper], [bLower, bUpper]) => 
     aLower <= bLower && aUpper >= bUpper;
 
+const isBetween = (n, [lower, upper]) => n >= lower && n <= upper;
+
+const pairsOverlap = (a, b) =>
+    isBetween(a[0], b) ||
+    isBetween(a[1], b) ||
+    isBetween(b[0], a) ||
+    isBetween(b[1], a);
+
 const pairsList = input.split('\n').map(parsePair);
 
 const totalOverlaps = pairsList.map(pairs => 
@@ -17,5 +25,9 @@ const totalOverlaps = pairsList.map(pairs =>
     )
     .reduce((acc, x) => acc + x, 0);
 
+const partialOverlaps = pairsList
+    .map(pairs => pairsOverlap(...pairs))
+    .reduce((acc, x) => acc + x, 0);
+
 console.log(`total overlaps: ${totalOverlaps}`);
-    
+console.log(`partial overlaps: ${partialOverlaps}`);    
