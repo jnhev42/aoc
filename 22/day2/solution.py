@@ -11,7 +11,12 @@ class Outcome(IntEnum):
     DRAW = 3
     LOSS = 0
 
-MOVE_DECRYPT = { 
+PART1_CODE = { 
+    "A": Move.ROCK, "B": Move.PAPER, "C": Move.SCISSORS,
+    "X": Move.ROCK, "Y": Move.PAPER, "Z": Move.SCISSORS,
+}
+
+PART2_CODE = {
     "A": Move.ROCK, "B": Move.PAPER, "C": Move.SCISSORS,
     "X": Outcome.LOSS, "Y": Outcome.DRAW, "Z": Outcome.WIN,
 }
@@ -39,7 +44,10 @@ def plr_move(opnt: Move, outcome: Outcome):
 input = Path('input.txt').read_text()
 lines = input.split("\n")[:-1]
 
-pairs = map(lambda l: list(map(MOVE_DECRYPT.get, l.split(" "))), lines)
-score = sum(map(lambda pair: pair[1] + plr_move(*pair), pairs))
-print(score)
+pairs_part1 = list(map(lambda l: list(map(PART1_CODE.get, l.split(" "))), lines))
+part1 = sum(map(lambda pair: pair[1] + play(*pair), pairs_part1))
+print('part1 =', part1)
 
+pairs_part2 = list(map(lambda l: list(map(PART2_CODE.get, l.split(" "))), lines))
+part2 = sum(map(lambda pair: pair[1] + plr_move(*pair), pairs_part2))
+print('part2 =', part2)
