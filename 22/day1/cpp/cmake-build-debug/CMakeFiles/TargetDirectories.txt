@@ -1,3 +1,0 @@
-/home/jnh/prg/aoc/22/day1/cpp/cmake-build-debug/CMakeFiles/cpp.dir
-/home/jnh/prg/aoc/22/day1/cpp/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/jnh/prg/aoc/22/day1/cpp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
