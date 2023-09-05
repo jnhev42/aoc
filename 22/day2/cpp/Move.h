@@ -1,5 +1,4 @@
-#ifndef CPP_MOVE_H
-#define CPP_MOVE_H
+#pragma once
 #include "Outcome.h"
 
 class Move {
@@ -26,4 +25,3 @@ public:
 
     Move drawsTo() const;
 };
-#endif //CPP_MOVE_H

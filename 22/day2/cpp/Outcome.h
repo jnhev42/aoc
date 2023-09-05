@@ -1,6 +1,4 @@
-#ifndef CPP_OUTCOME_H
-#define CPP_OUTCOME_H
-
+#pragma once
 class Move;
 
 class Outcome {
@@ -26,5 +24,3 @@ public:
 
     Move findMove(const Move&);
 };
-
-#endif //CPP_OUTCOME_H
